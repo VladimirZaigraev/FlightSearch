@@ -1,0 +1,261 @@
+body
+  margin: 0
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  background-color: #0C73FE
+
+.App
+  height: 100%
+    //max-width: 880px
+  min-width: 320px
+  margin: 0 auto
+  width: 100%
+  min-height: 100vh
+  display: flex
+  flex-direction: column
+  height: 100%
+
+.section
+  box-sizing: border-box
+  font-family: Inter, Arial, Helvetica, sans-serif
+  text-rendering: optimizeLegibility
+  max-width: 800px
+  margin: 0 auto
+
+.header
+  height: 50px
+  box-shadow: 0px 9px 10px rgba(0, 0, 0, 0.25)
+  color: #ffffff
+  &__brand
+    display: flex
+    width: 180px
+    text-decoration: none
+  &__logo
+    margin-right: 4px
+  &__text
+    text-decoration: none
+    outline: none
+    text-decoration: none
+    color: #ffffff
+
+.main
+  &__wrapper
+    display: flex
+    padding: 30px 0
+
+.filters
+  width: 30%
+  box-sizing: border-box
+  background-color: #ffffff
+  border-radius: 10px
+  min-height: 500px
+  padding: 20px
+  &__sort-price
+    margin-bottom: 4px
+  &__transfer
+    margin-bottom: 4px
+  &__price
+    margin-bottom: 4px
+  &__airlines
+    margin-bottom: 4px
+  &__title
+    display: inline-block
+    width: 100%
+    font-weight: normal
+    line-height: 24px
+    font-size: 12px
+    border-bottom: 1px solid #0C73FE
+    margin: 0
+  &__label
+    // height: 20px
+    display: block
+    margin: 6px 0 0 0
+    position: relative
+  &__radio
+    margin: 0
+    opacity: 0
+    visablity: hidden
+    position: absolute
+    top: 25px
+    left: -14px
+  &__radio:checked + .filters__radio-text
+    background-color: #0C73FE
+    color: #ffffff
+  &__radio-text
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    background-color: #E1E5EC
+    padding: 5px
+    border-radius: 6px
+    font-size: 10px
+    box-sizing: border-box
+    width: 100%
+    margin: 0
+    cursor: pointer
+    transition: opacity 0.5s linear
+  &__radio-text:hover
+    opacity: 0.8
+  &__input
+    background-color: inherit
+    border: 1px solid #E1E5EC
+    box-sizing: border-box
+    border-radius: 4px
+    text-align: center
+    width: 100%
+  &__input:focus
+    border: 1px solid #0C73FE
+    outline: none
+.price
+  &__wrapper
+    display: flex
+    justify-content: space-between
+  &__label
+    position: relative
+    width: 49%
+    margin-top: 10px
+  &__text
+    font-style: normal
+    font-weight: normal
+    font-size: 8px
+    line-height: 14px
+    color: #000000
+    margin-bottom: 2px
+    position: absolute
+    top: -14px
+    left: 6px
+    background-color: #fff
+    padding: 0 2px 0 2px
+    text-transform: uppercase
+
+.tickets
+  margin-left: 4px
+  flex-grow: 1
+  &__button
+    background-color: #FF6F32
+    color: #ffffff
+    width: 100%
+    height: 40px
+    border-radius: 10px
+    border: none
+    cursor: pointer
+    transition: opacity 0.5s linear
+  &__button:hover
+    opacity: 0.9
+
+.ticket
+  background-color: #fff
+  border-radius: 10px
+  width: 100%
+  min-height: 100px
+  display: flex
+  font-size: 14px
+  margin-bottom: 10px
+.flight
+  display: flex
+  flex-direction: column
+  &__thither
+    display: flex
+    flex-direction: column
+    border-bottom: 1px solid #0C73FE
+    padding: 10px
+  &__backward
+    padding: 10px
+  &__main
+    display: flex
+    justify-content: space-between
+  &__header
+    width: 100%
+    height: 20px
+  &__info
+    width: 30%
+    &-right
+      text-align: right
+  &__airport
+    font-size: 14px
+    margin: 0 0 2px 0
+    color: #0C73FE
+    font-weight: 500
+  &__date
+    font-size: 14px
+    margin: 0
+    margin: 0 0 2px 0
+    font-weight: 500
+  &__time
+    font-size: 18px
+    margin: 0
+    font-weight: 400
+  &__mid-flight
+    font-size: 14px
+    margin: 0
+    color: #424141
+  &__transfer
+    font-size: 14px
+    margin: 0
+  &__airlines
+    font-size: 14px
+    margin: 0
+  &__center
+    align-items: center
+    flex-grow: 1
+    display: flex
+    flex-direction: column
+    justify-content: center
+  &__mid-flight
+    display: inline-block
+    margin-bottom: 10px
+    font-size: 12px
+  &__line
+    width: 100%
+    border-bottom: 4px solid #0C73FE
+    position: relative
+  &__img
+    position: absolute
+    height: 24px
+    &-thither
+      right: -1px
+      top: -10px
+    &-backward
+      top: -10px
+      left: -1px
+      transform: rotate(180deg)
+  &__transfer
+    display: inline-block
+    background-color: #FF6F32
+    color: #ffffff
+    font-size: 10px
+    padding: 3px
+    border-radius: 4px
+    margin-top: -10px
+    z-index: 1
+    text-transform: uppercase
+  &__footer
+    margin-top: 4px
+  &__airlines
+    color: #424141
+    font-size: 10px
+.ticket:hover
+  box-shadow: 6px 9px 10px rgba(0, 0, 0, 0.5)
+.talon
+  padding: 10px
+  border-left: 1px solid #0C73FE
+  width: 20%
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  &__price
+    font-size: 24px
+  &__text
+    color: #424141
+    font-size: 10px
+  &__button
+    background-color: #FF6F32
+    color: #ffffff
+    width: 100%
+    height: 40px
+    border-radius: 10px
+    border: none
+    cursor: pointer
+    transition: opacity 0.5s linear
+  &__button:hover
+    opacity: 0.9
