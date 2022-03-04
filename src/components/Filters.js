@@ -1,38 +1,97 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Filters = () => {
+const Filters = ({sortTikets, sortFilters}) => {
+
+  const [sort, setSort] = useState('')
+  const [filter, setFilter] = useState('')
+
+  const handelChangeSort = (event) => {
+    // console.log(event.target.checked)
+    if(event.target.checked) {
+      setSort(event.target.value)
+      // console.log(event.target.value)
+      // console.log(sort)
+      sortTikets(event.target.value)
+    }
+  }
+
+  const handelChangeFilter = (event) => {
+    if(event.target.checked) {
+      sortFilters(event.target.value)
+      setFilter(event.target.value)
+    }
+  }
+
   return (  
           <div className="filters">
             <form className="filters__form">
-              <div className="filters__sort-price sort-price">
+              <div className="filters__sort sort">
                 <h4 className="filters__title">Сортировать</h4>
-                <label className="filters__label" htmlFor="radio1">
-                  <input className="filters__radio" type="radio" id="radio1"/>
+                <label 
+                  className="filters__label" 
+                  htmlFor="radioHighPrice">
+                  <input 
+                    className="filters__radio" 
+                    type="radio" 
+                    id="radioHighPrice" 
+                    value="highPrice"
+                    checked={sort === 'highPrice' ? true : false} 
+                    onChange={handelChangeSort}/>
                   <p className="filters__radio-text">по возврастанию цены</p>
                 </label>
-                <label className="filters__label" htmlFor="radio2">
-                  <input className="filters__radio" type="radio" id="radio2"/>
+                <label 
+                  className="filters__label" 
+                  htmlFor="radioLowPrice">
+                  <input 
+                    className="filters__radio" 
+                    type="radio" 
+                    id="radioLowPrice" 
+                    value="lowPrice"
+                    checked={sort === 'lowPrice' ? true : false} 
+                    onChange={handelChangeSort}/>
                   <p className="filters__radio-text">по убыванию цены</p>
                 </label>
-
-                <label className="filters__label" htmlFor="radio3">
-                  <input className="filters__radio" type="radio" id="radio3"/>
+                <label 
+                  className="filters__label" 
+                  htmlFor="radioTimeFly">
+                  <input 
+                    className="filters__radio" 
+                    type="radio" 
+                    id="radioTimeFly" 
+                    value="timeFly"
+                    checked={sort === 'timeFly' ? true : false} 
+                    onChange={handelChangeSort}/>
                   <p className="filters__radio-text">по времени в пути</p>
                 </label>
-
               </div>
               <div className="filters__transfer transfer">
                 <h4 className="filters__title">Фильтровать</h4>
-                <label className="filters__label" htmlFor="radio4">
-                  <input className="filters__radio" type="radio" id="radio4"/>
+                <label 
+                  className="filters__label" 
+                  htmlFor="radioTransfer">
+                  <input 
+                    className="filters__radio" 
+                    type="radio"
+                    name="filter" 
+                    id="radioTransfer"
+                    value="transfer"
+                    checked={filter === 'transfer' ? true : false} 
+                    onChange={handelChangeFilter}/>
                   <p className="filters__radio-text">1 пересадка</p>
                 </label>
-
-                <label className="filters__label" htmlFor="radio5">
-                  <input className="filters__radio" type="radio" id="radio5"/>
+                <label 
+                  className="filters__label" 
+                  htmlFor="radioNoTransfer">
+                  <input 
+                    className="filters__radio" 
+                    type="radio"
+                    name="filter" 
+                    id="radioNoTransfer"
+                    value="noTransfer"
+                    checked={filter === 'noTransfer' ? true : false} 
+                    onChange={handelChangeFilter}/>
                   <p className="filters__radio-text">без пересадок</p>
                 </label>
-
               </div>
               <div className="filters__price price">
                 <h4 className="filters__title">Цена</h4>
