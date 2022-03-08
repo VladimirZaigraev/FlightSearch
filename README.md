@@ -30,3 +30,8 @@
 
 Добавлен фукционал - доп услуги.
 ![Image alt](https://github.com//VladimirZaigraev/FlightSearch/blob/master/screenshot/scr2.jpg)
+
+Ссылка на ghpage: https://vladimirzaigraev.github.io/FlightSearch/
+
+> Проект находится в разработке.
+> Планируется добавление страницы оформления заказа, доработка дизайна и анимаций

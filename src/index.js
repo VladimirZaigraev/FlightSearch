@@ -4,14 +4,15 @@ import './index.sass';
 import './vendor/normalize.css';
 import './vendor/fonts.css'
 import App from './App';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    {/* HashRouter использован для корректного отображения в ghpage */}
+    <HashRouter basename={process.env.PUBLIC_URL}>
       <App />
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
