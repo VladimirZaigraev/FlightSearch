@@ -18,13 +18,13 @@ const Services = ({ textStatus, id, servicesPrice, setPriceTotal, price}) => {
   return (
     click === false ? 
     <div onClick={plusPrice} className="talon__services services services_paid" id={id}>
-      <p className="services__title services__text_paid">{textStatus}</p> 
-      <span  className="talon__text services__text services__title_paid">+{servicesPrice}&#8381;</span>
+      <p className="services__title services__title services__title_paid">{textStatus}</p> 
+      <span  className="talon__text services__text services__text_paid">+{servicesPrice}&#8381;</span>
     </div>
     :
     <div onClick={minusPrice} className="talon__services services services_free" id={id}>
-      <p className="services__title services__text_free">{textStatus}</p> 
-      <span  className="talon__text services__text services__title_free">  включен</span>
+      <p className="services__title services__title services__title_free">{textStatus}</p> 
+      <span  className="talon__text services__text services__text_free ">включен</span>
     </div>
     
   )
