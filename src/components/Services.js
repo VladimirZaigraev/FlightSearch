@@ -15,6 +15,7 @@ const Services = ({ textStatus, id, servicesPrice, setPriceTotal, price}) => {
     setClick(false)
     setPriceTotal((price + parseInt(servicesPrice)) - parseInt(servicesPrice))
   }
+  
   return (
     click === false ? 
     <div onClick={plusPrice} className="talon__services services services_paid" id={id}>

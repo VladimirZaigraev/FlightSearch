@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Filters = ({searchAirlanes, sortTikets, sortFilters, sortPrice}) => {
   const [search, setSearch] = useState('')
@@ -8,35 +8,41 @@ const Filters = ({searchAirlanes, sortTikets, sortFilters, sortPrice}) => {
     priceMin: "",
     priceMax: ""
   })
+
+  useEffect(() => {
+    sortTikets(sort)
+  }, [sort])
+
+  useEffect(() => {
+    sortFilters(filter)
+  }, [filter])
+
+  
   const handleSearch = (event) => {
-    console.log(event.target.value)
     setSearch(event.target.value)
     searchAirlanes(event.target.value)
   }
 
   const handelChangeSort = (event) => {
-    if(event.target.checked) {
-      setSort(event.target.value)
-      sortTikets(event.target.value)
+    const {checked, value} = event.target
+    if(checked) {
+      setSort(value)
     }
   }
 
   const handelChangeFilter = (event) => {
-    if(event.target.checked) {
-      sortFilters(event.target.value)
-      setFilter(event.target.value)
+    const {checked, value} = event.target
+    if(checked) {
+      setFilter(value)
     }
   }
 
   const hendelChangePrice = (event) => {
-    console.log('event.target.name', event.target.name)
-    let newState = {
+    const newState = {
         ...price,
         [event.target.name]: event.target.value
     };
-    console.log(newState);
     setPrice(newState);
-    // sortPrice(newState);
   }
   
   return (  
@@ -52,7 +58,6 @@ const Filters = ({searchAirlanes, sortTikets, sortFilters, sortPrice}) => {
                     type="text" 
                     id="search" 
                     placeholder="Название авиакомпании"
-                    //  onBlur={() => searchAirlanes(search)}
                      />
                 </label>
               </div>
