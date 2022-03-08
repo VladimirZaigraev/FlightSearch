@@ -3,7 +3,8 @@ body
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   background-color: #0C73FE
-
+*
+  box-sizing: border-box
 .App
   height: 100%
     //max-width: 880px
@@ -27,7 +28,7 @@ body
   color: #ffffff
   position: fixed
   width: 100%
-  z-index: 100
+  z-index: 9999
   background-color: #0C73FE
   &__wrapper
     display: flex
@@ -61,7 +62,7 @@ body
   background-color: #ffffff
   border-radius: 10px
   height: calc(100% - 55px)
-  padding: 20px
+  padding: 10px
   position: fixed
   &__sort
     margin-bottom: 4px
@@ -116,9 +117,13 @@ body
     border-radius: 4px
     text-align: center
     width: 100%
+    font-size: 12px
   &__input:focus
     border: 1px solid #0C73FE
     outline: none
+  &__input::placeholder
+    font-size: 12px
+
 .price
   &__wrapper
     display: flex
@@ -165,9 +170,9 @@ body
 .button
   &__more
     //width: 100%
-    width: 77%
+    width: 75%
   &__all
-    width: 22%
+    width: 24%
 
 .ticket
   background-color: #fff
@@ -177,6 +182,7 @@ body
   display: flex
   font-size: 14px
   margin-bottom: 10px
+
 .flight
   display: flex
   flex-direction: column
@@ -243,9 +249,10 @@ body
     display: flex
     flex-direction: column
     justify-content: center
+    position: relative
   &__time-flight
     display: inline-block
-    margin-bottom: 10px
+    margin: 0 0 10px 0
     font-size: 10px
     color: #424141
   &__line
@@ -270,7 +277,9 @@ body
     font-size: 8px
     padding: 3px 5px 3px 5px
     border-radius: 4px
-    margin-top: -10px
+    top: 54%
+    //margin-top: -10px
+    position: absolute
     z-index: 1
     text-transform: uppercase
   &__footer
@@ -280,14 +289,16 @@ body
     font-size: 10px
 .ticket:hover
   box-shadow: 6px 9px 10px rgba(0, 0, 0, 0.5)
+
 .talon
   padding: 10px
   border-left: 1px solid #0C73FE
-  width: 20%
+  width: 25%
   display: flex
   flex-direction: column
   justify-content: space-between
   &__price
+  &__total
     font-size: 22px
   &__text
     color: #424141
@@ -304,3 +315,117 @@ body
     transition: opacity 0.5s linear
   &__button:hover
     opacity: 0.9
+  &__checkbox
+    display: none
+  &__wrapper-icon
+    display: flex
+  &__icon
+    // width: 20px
+    height: 15px
+  // &__icon::after
+  //   content: attr(data-title)
+  &__icon:hover::after
+    content: attr(data-title)
+
+.tooltip
+  display: inline
+  position: relative
+  z-index: 999
+  &__icon
+    cursor: pointer
+    display: inline-block
+    height: 14px
+    margin-right: 10px
+  &__icon::after
+    content: ''
+    position: absolute
+    // width: 360px
+    height: 20px
+    bottom: 100%
+    left: 50%
+    pointer-events: none
+    transform: translateX(-50%)
+  &-content
+    position: absolute
+    z-index: 100
+    width: auto
+    left: 40%
+    border-radius: 4px
+    margin: 0 0 20px -32px
+    top: 120%
+    text-align: left
+    box-shadow: -5px -5px 15px #0d4f9b33
+    background: #0C73FE
+    opacity: 0
+    cursor: default
+    pointer-events: none
+    padding: 0px 4px 4px 4px
+  &-content::after
+    content: ''
+    bottom: 100%
+    left: 50%
+    border: solid transparent
+    height: 0
+    width: 0
+    position: absolute
+    pointer-events: none
+    border-color: transparent
+    border-top-color: #0C73FE
+    border-width: 10px
+    margin-left: -10px
+    transform: rotate(180deg)
+  &-text
+    color: #ffffff
+    font-size: 10px
+    margin: 0
+
+.tooltip:hover .tooltip__icon::after
+  pointer-events: auto
+
+.tooltip-effect .tooltip-content
+  transform-origin: 50% calc(100% + 10px)
+  transform: perspective(1000px) rotate3d(1,0,0,45deg)
+  transition: opacity 0.2s, transform 0.2s
+
+.tooltip:hover .tooltip-content
+  pointer-events: auto
+  opacity: 1
+  transform: translate3d(0,0,0) rotate3d(0,0,0,0)
+
+.tooltip.tooltip-effect:hover .tooltip-content
+  transform: perspective(1000px) rotate3d(1,0,0,0deg)
+
+.services
+  width: 100%
+  border-radius: 4px
+  height: 30px
+  padding: 2px
+  display: flex
+  align-items: center
+  cursor: pointer
+  margin-top: 10px
+  &__img
+    height: 20px
+    width: 20px
+    margin-right: 2px
+  &_free
+    border: 1px solid #0C73FE
+    color: #0C73FE
+  &__text
+    margin: 0
+    font-size: 12px
+    &_free
+      color: #0C73FE
+    &_paid
+      color: #FF6F32
+  &_paid
+    border: 1px solid #FF6F32
+  &__title
+    text-transform: uppercase
+    font-size: 11px
+    margin: 0 2px 0 0
+    font-weight: 500
+    &_free
+      color: #0C73FE
+    &_paid
+      color: #FF6F32

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Filters from "./Filters";
 import Ticket from "./Ticket";
 import data from "../data/flights.json"
@@ -6,23 +6,34 @@ import data from "../data/flights.json"
 const Main = () => {
 const newData = data.result.flights.slice()
 const [flights, setFlights] = useState(newData);
-// console.log(flights)
-// 
-// const data = JSON.parse(JSON.stringify(flights))
-console.log(data)
-//const flights = data.result.flights
-//const tickets = flights.slice().sort((a, b) => (parseInt(a.flight.price.total.amount) - parseInt(b.flight.price.total.amount)))
+
+const searchAirlanes = (search) => {
+  const searchAir = flights.filter((item) => {
+     if(item.flight.legs.every((item) => 
+     item.segments.every((segment) => 
+     segment.airline.caption.toLowerCase().includes(search.toLowerCase())))) {
+       return item
+     }
+    })
+  if(search.length > 0) {
+    setFlights(searchAir)
+  } else {
+    setFlights(newData)
+  }
+  
+}
+
 const sortTikets = (sort) => {
   switch(sort) {
     case "highPrice":
       setFlights([...flights].sort((prev, next) => {
-      return +prev.flight.price.total.amount - +next.flight.price.total.amount;
+      return parseInt(prev.flight.price.total.amount) - parseInt(next.flight.price.total.amount);
     }))
       console.log(sort)
       break;
     case "lowPrice":
       setFlights([...flights].sort((prev, next) => {
-      return +next.flight.price.total.amount - +prev.flight.price.total.amount;
+      return parseInt(next.flight.price.total.amount) - parseInt(prev.flight.price.total.amount)
     }))
       console.log(sort)
       break;
@@ -57,40 +68,58 @@ const sortFilters = (sort) => {
       break;
   }
 }
+const sortPrice = (price) => {
+    console.log('priceMin', price.priceMin)
+    console.log('priceMax', price.priceMax)
+    if (price.priceMin.length > 0) {
+      setFlights(newData.filter(
+        (item) => parseInt(item.flight.price.total.amount) > +price.priceMin
+      ))
+
+    }
+    if (price.priceMax.length > 0) {
+      setFlights(newData.filter(
+        (item) => parseInt(item.flight.price.total.amount) < +price.priceMax
+      ))
+    }
+}
 
   const countTiket = 2
   const [counter, setCounter] = useState(countTiket);
   const tiketLength = flights.length;
-  console.log("maxLength", tiketLength)
 
   const plusCounter = () => {
     const newCounter = Math.min(tiketLength, counter + countTiket);
-    console.log('newCounter', newCounter)
     setCounter(newCounter);
   };
-  // const allCounter = () => {
-  //   setCounter(10);
-  // }
+
   const tiketAll = tiketLength - countTiket
+  const plusAllCounter = () => {
+    setCounter(tiketLength);
+  };
+
 
   return (  
     <main className="main">
       <div className="section">
         <div className="main__wrapper">
-          <Filters sortTikets={sortTikets} sortFilters={sortFilters}/>
+          <Filters searchAirlanes={searchAirlanes} sortTikets={sortTikets} sortFilters={sortFilters} sortPrice={sortPrice} />
           <div className="tickets">
             {flights.slice(0, counter).map(({flight, flightToken}) => (
              <Ticket key={flightToken} {...flight}/>
             ))
             }
-            <div className="tickets__wrapper-btn">
+             {counter === tiketLength ? "" :
+             <div className="tickets__wrapper-btn">
               <button 
                 onClick={plusCounter}
                 className="tickets__button button__more"> Показать еще {countTiket}
               </button>
               <button 
-                className="tickets__button button__all"> Показать все {tiketAll}</button>
-            </div>
+                onClick={plusAllCounter}
+                className="tickets__button button__all"> Показать все {tiketLength}</button>
+            </div>}
+
           </div>
 
         </div>

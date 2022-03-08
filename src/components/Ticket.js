@@ -6,15 +6,15 @@ import Segment from "./Segment";
 
 const Ticket = ({...flight}) => {
 
-  const price = flight.price.total.amount;
-  console.log()
+ 
   const segmentFrom = flight.legs[0].segments;
   const segmentAbout = flight.legs[1].segments;
-  console.log("segmentFrom", segmentFrom)
-  // //трансфер
+ 
+  //трансфер
   let transferFrom = flight.legs[0].segments.length > 1;
   let transferAbout = flight.legs[1].segments.length > 1;
 
+ 
 
   return (
             <div className="ticket">
@@ -34,7 +34,7 @@ const Ticket = ({...flight}) => {
                   classInfoLeft={"right"} 
                   classInfoRight={"left"}/>
               </div>
-              <Talon price={price}/>
+              <Talon flight={flight}/>
             </div>
   )
 }

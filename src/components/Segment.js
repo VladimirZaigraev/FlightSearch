@@ -3,16 +3,16 @@ import uploadLogo from "../functions/uploadLogo"
 import airplane from "../img/tickets/air.svg"
 
 const Segment = ({segment, transfer, positionImg, classMain, classInfoLeft, classInfoRight}) => {
-  console.log("segment",segment)
-
+  // console.log("segment",segment)
   const airline = segment[0].airline.caption;
   //вылет
   const departureCity = segment[0].departureCity?.caption;
   const departureAirport = segment[0].departureAirport.caption;
   const departureUid = segment[0].departureAirport.uid;
   const departureDate = segment[0].departureDate
+  
   //прилет
-  const arrivalCity = transfer ? segment[1].arrivalCity.caption : segment[0].arrivalCity.caption;
+  const arrivalCity = transfer ? segment[1].arrivalCity?.caption : segment[0].arrivalCity.caption;
   const arrivalAirport = transfer ? segment[1].arrivalAirport.caption : segment[0].arrivalAirport.caption;
   const arrivalUid = transfer ? segment[1].arrivalAirport.uid : segment[0].arrivalAirport.uid;
   const arrivalDate = transfer ? segment[1].arrivalDate
@@ -31,8 +31,8 @@ const Segment = ({segment, transfer, positionImg, classMain, classInfoLeft, clas
     return newTime;
   }
 
-
-  console.log('transfer', transfer)
+  
+  //console.log('transfer', transfer)
   return (     
     <div className="flight__segment">
       <div className="flight__header">

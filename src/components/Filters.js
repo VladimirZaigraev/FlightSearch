@@ -1,16 +1,22 @@
 import React, { useState } from "react";
 
-const Filters = ({sortTikets, sortFilters}) => {
-
+const Filters = ({searchAirlanes, sortTikets, sortFilters, sortPrice}) => {
+  const [search, setSearch] = useState('')
   const [sort, setSort] = useState('')
   const [filter, setFilter] = useState('')
+  const [price, setPrice] = useState({
+    priceMin: "",
+    priceMax: ""
+  })
+  const handleSearch = (event) => {
+    console.log(event.target.value)
+    setSearch(event.target.value)
+    searchAirlanes(event.target.value)
+  }
 
   const handelChangeSort = (event) => {
-    // console.log(event.target.checked)
     if(event.target.checked) {
       setSort(event.target.value)
-      // console.log(event.target.value)
-      // console.log(sort)
       sortTikets(event.target.value)
     }
   }
@@ -22,9 +28,34 @@ const Filters = ({sortTikets, sortFilters}) => {
     }
   }
 
+  const hendelChangePrice = (event) => {
+    console.log('event.target.name', event.target.name)
+    let newState = {
+        ...price,
+        [event.target.name]: event.target.value
+    };
+    console.log(newState);
+    setPrice(newState);
+    // sortPrice(newState);
+  }
+  
   return (  
           <div className="filters">
             <form className="filters__form">
+              <div className="filters__search search">
+                <div className="filters__title">Поиск</div>
+                <label className="filters__label" htmlFor="search">
+                  <input 
+                    className="filters__input search__input" 
+                    onChange={handleSearch} 
+                    value={search} 
+                    type="text" 
+                    id="search" 
+                    placeholder="Название авиакомпании"
+                    //  onBlur={() => searchAirlanes(search)}
+                     />
+                </label>
+              </div>
               <div className="filters__sort sort">
                 <h4 className="filters__title">Сортировать</h4>
                 <label 
@@ -96,28 +127,31 @@ const Filters = ({sortTikets, sortFilters}) => {
               <div className="filters__price price">
                 <h4 className="filters__title">Цена</h4>
                 <div className="price__wrapper">
-                  <label className="filters__label price__label" htmlFor="price-min">
+                  <label className="filters__label price__label" htmlFor="priceMin">
                     <p className="price__text">от</p>
-                    <input className="filters__input price__input" name="price-min" type="number" minLength={1}  maxLength={9}/>
+                    <input 
+                      className="filters__input price__input"   name="priceMin" 
+                      type="number" 
+                      minLength={1} 
+                      maxLength={9}
+                      placeholder="0"
+                      value={price.priceMin}
+                      onChange={hendelChangePrice} 
+                      onBlur={() => sortPrice(price)}/>
                   </label>
-                  <label className="filters__label price__label" htmlFor="price-max">
+                  <label className="filters__label price__label" htmlFor="priceMax">
                     <p className="price__text">до</p>
-                    <input className="filters__input price__input" nume="price-max" type="number" minLength={1}  maxLength={9}/>
+                    <input 
+                      className="filters__input price__input" name="priceMax" 
+                      type="number" 
+                      placeholder="100 000" 
+                      minLength={1}  
+                      maxLength={9}
+                      value={price.priceMax}
+                      onChange={hendelChangePrice}
+                      onBlur={() => sortPrice(price)}/>
                   </label>
                 </div>
-              </div>
-              <div className="filters__airlines airlines">
-                <h4 className="filters__title">Авиакомпании</h4>
-                <label className="filters__label" htmlFor="radio6">
-                  <input className="filters__radio" type="radio" id="radio6"/> 
-                  <p className="filters__radio-text">Авиакомпания 1</p>
-                </label>
-
-                <label className="filters__label" htmlFor="radio7">
-                  <input className="filters__radio" type="radio" id="radio7"/>
-                  <p className="filters__radio-text">Авиакомпания 2</p>
-                </label>
-
               </div>
             </form>
           </div>
