@@ -3,22 +3,24 @@ import uploadLogo from "../functions/uploadLogo"
 import airplane from "../img/tickets/air.svg"
 
 const Segment = ({segment, transfer, positionImg, classMain, classInfoLeft, classInfoRight}) => {
-  // console.log("segment",segment)
-  const airline = segment[0].airline.caption;
+
+  const SEGMENT_FIRST = segment[0]
+  const SEGMENT_LAST = segment[1]
+
+  const airline = SEGMENT_FIRST.airline.caption;
   //вылет
-  const departureCity = segment[0].departureCity?.caption;
-  const departureAirport = segment[0].departureAirport.caption;
-  const departureUid = segment[0].departureAirport.uid;
-  const departureDate = segment[0].departureDate
+  const departureCity = SEGMENT_FIRST.departureCity?.caption;
+  const departureAirport = SEGMENT_FIRST.departureAirport.caption;
+  const departureUid = SEGMENT_FIRST.departureAirport.uid;
+  const departureDate = SEGMENT_FIRST.departureDate
   
   //прилет
-  const arrivalCity = transfer ? segment[1].arrivalCity?.caption : segment[0].arrivalCity.caption;
-  const arrivalAirport = transfer ? segment[1].arrivalAirport.caption : segment[0].arrivalAirport.caption;
-  const arrivalUid = transfer ? segment[1].arrivalAirport.uid : segment[0].arrivalAirport.uid;
-  const arrivalDate = transfer ? segment[1].arrivalDate
-        : segment[0].arrivalDate;
+  const arrivalCity = transfer ? SEGMENT_LAST.arrivalCity?.caption : SEGMENT_FIRST.arrivalCity.caption;
+  const arrivalAirport = transfer ? SEGMENT_LAST.arrivalAirport.caption : SEGMENT_FIRST.arrivalAirport.caption;
+  const arrivalUid = transfer ? SEGMENT_LAST.arrivalAirport.uid : SEGMENT_FIRST.arrivalAirport.uid;
+  const arrivalDate = transfer ? SEGMENT_LAST.arrivalDate : SEGMENT_FIRST.arrivalDate;
   //время полета
-  const travelDuration = String((segment[0].travelDuration / 60).toFixed(0))+ ' ч' + ' ' + String(segment[0].travelDuration % 60)+' мин';
+  const travelDuration = String((SEGMENT_FIRST.travelDuration / 60).toFixed(0))+ ' ч' + ' ' + String(SEGMENT_FIRST.travelDuration % 60)+' мин';
 
   const convertDate = (date) => {
     const day = new Date(date).toLocaleString('ru', {day: '2-digit', month: 'short'});

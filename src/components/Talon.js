@@ -94,6 +94,5 @@ const Talon = ({flight}) => {
       <button className="talon__button">Выбрать</button>
     </div>
   )
-
 }
 export default Talon;

@@ -119,9 +119,7 @@ const sortPrice = (price) => {
                 onClick={plusAllCounter}
                 className="tickets__button button__all"> Показать все {tiketLength}</button>
             </div>}
-
           </div>
-
         </div>
       </div>
     </main>
