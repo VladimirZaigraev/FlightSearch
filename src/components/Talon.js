@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Button from "./Button";
+
 import baggageOff from "../img/talon/bagOff.svg"
 import baggageFree from "../img/talon/bagFree.svg"
 import baggagePaid from "../img/talon/bagPaid.svg"
@@ -26,8 +28,6 @@ const Talon = ({flight}) => {
   const refundStatusUid = flight.servicesStatuses.refund.uid
   const priceExchange = flight.exchange.ADULT.exchangeAfterDeparture?.amount
   const priceRefund = flight.refund.ADULT.refundBeforeDeparture?.amount
-
-  
 
   return (  
     <div className="ticket__talon talon">
@@ -90,8 +90,9 @@ const Talon = ({flight}) => {
         />
       : '' }
       </div>
-      
-      <button className="talon__button">Выбрать</button>
+      <Button
+        classBtn="talon__button" 
+        text="Выбрать"/>
     </div>
   )
 }

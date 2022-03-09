@@ -1,20 +1,22 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import Filters from "./Filters";
 import Ticket from "./Ticket";
 import data from "../data/flights.json"
+import Button from "./Button";
 
 const Main = () => {
 const newData = data.result.flights.slice()
 const [flights, setFlights] = useState(newData);
 
 const searchAirlanes = (search) => {
+
   const searchAir = flights.filter((item) => {
-     if(item.flight.legs.every((item) => 
-     item.segments.every((segment) => 
-     segment.airline.caption.toLowerCase().includes(search.toLowerCase())))) {
-       return item
-     }
-    })
+  if(item.flight.legs.every((item) => 
+    item.segments.every((segment) => 
+    segment.airline.caption.toLowerCase().includes(search.toLowerCase())))) {
+      return item
+    }
+  })
   if(search.length > 0) {
     setFlights(searchAir)
   } else {
@@ -111,13 +113,14 @@ const sortPrice = (price) => {
             }
              {counter === tiketLength ? "" :
              <div className="tickets__wrapper-btn">
-              <button 
-                onClick={plusCounter}
-                className="tickets__button button__more"> Показать еще {countTiket}
-              </button>
-              <button 
+               <Button 
+                onClick={plusCounter} 
+                classBtn="button__more" 
+                text={`Показать еще ${countTiket}`}/>
+                <Button  
                 onClick={plusAllCounter}
-                className="tickets__button button__all"> Показать все {tiketLength}</button>
+                classBtn="button__all"
+                text={`Показать все ${tiketAll}`}/>
             </div>}
           </div>
         </div>
