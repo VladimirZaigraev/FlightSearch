@@ -17,13 +17,15 @@ const TalonIcon = ({uid, imgOff, imgFree, imgPaid, textStatus, status }) => {
       break;
   }
   return(
-    <span className="tooltip tooltip-effect">
+    <div className="tooltip tooltip_effect">
       <img src={tooltipImg} alt={textStatus} className="tooltip__icon"/>
-      <span className="tooltip-content clearfix">
-        <span className="tooltip-text"> {`${textStatus}: ${status}`}
+      <div className="tooltip__content clearfix">
+        <p className="tooltip__title"> {textStatus}
+        </p>
+        <span className="tooltip__text"> {status}
         </span>
-        </span>
-    </span>
+        </div>
+    </div>
   )
 }
 export default TalonIcon

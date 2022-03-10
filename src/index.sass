@@ -331,24 +331,24 @@ body
   display: inline
   position: relative
   z-index: 999
+  margin-right: 10px
   &__icon
     cursor: pointer
     display: inline-block
-    height: 14px
-    margin-right: 10px
+    height: 16px
   &__icon::after
     content: ''
     position: absolute
-    // width: 360px
     height: 20px
     bottom: 100%
     left: 50%
     pointer-events: none
     transform: translateX(-50%)
-  &-content
+  &__content
     position: absolute
     z-index: 100
-    width: auto
+    // width: auto
+    width: 69px
     left: 40%
     border-radius: 4px
     margin: 0 0 20px -32px
@@ -359,8 +359,8 @@ body
     opacity: 0
     cursor: default
     pointer-events: none
-    padding: 0px 4px 4px 4px
-  &-content::after
+    padding: 4px
+  &__content::after
     content: ''
     bottom: 100%
     left: 50%
@@ -374,25 +374,30 @@ body
     border-width: 10px
     margin-left: -10px
     transform: rotate(180deg)
-  &-text
+  &__title
+    margin: 0
+    text-transform: uppercase
+    color: #ffffff
+    font-size: 10px
+  &__text
     color: #ffffff
     font-size: 10px
     margin: 0
+    text-transform: lowercase
 
+.tooltip:last-child
+  margin-right: 0
 .tooltip:hover .tooltip__icon::after
   pointer-events: auto
-
-.tooltip-effect .tooltip-content
+.tooltip_effect .tooltip__content
   transform-origin: 50% calc(100% + 10px)
   transform: perspective(1000px) rotate3d(1,0,0,45deg)
   transition: opacity 0.2s, transform 0.2s
-
-.tooltip:hover .tooltip-content
+.tooltip:hover .tooltip__content
   pointer-events: auto
   opacity: 1
   transform: translate3d(0,0,0) rotate3d(0,0,0,0)
-
-.tooltip.tooltip-effect:hover .tooltip-content
+.tooltip.tooltip_effect:hover .tooltip__content
   transform: perspective(1000px) rotate3d(1,0,0,0deg)
 
 .services
