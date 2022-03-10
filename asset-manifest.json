@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/FlightSearch/static/css/main.4831c709.css",
-    "main.js": "/FlightSearch/static/js/main.f05e1a7c.js",
+    "main.css": "/FlightSearch/static/css/main.08a2a826.css",
+    "main.js": "/FlightSearch/static/js/main.3aaf6d94.js",
     "static/js/787.d0aa32e8.chunk.js": "/FlightSearch/static/js/787.d0aa32e8.chunk.js",
     "static/media/Inter-Medium.woff": "/FlightSearch/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
     "static/media/Inter-Black.woff": "/FlightSearch/static/media/Inter-Black.c6938660eec019fefd68.woff",
@@ -33,12 +33,12 @@
     "static/media/refFree.svg": "/FlightSearch/static/media/refFree.bc3debd816db4c724078dcdbdff722cd.svg",
     "static/media/refOff.svg": "/FlightSearch/static/media/refOff.62be992bc13ddb51cfd5febdfcadd1d0.svg",
     "static/media/refPaid.svg": "/FlightSearch/static/media/refPaid.f684c3ec345504604f7f1bda51669c78.svg",
-    "main.4831c709.css.map": "/FlightSearch/static/css/main.4831c709.css.map",
-    "main.f05e1a7c.js.map": "/FlightSearch/static/js/main.f05e1a7c.js.map",
+    "main.08a2a826.css.map": "/FlightSearch/static/css/main.08a2a826.css.map",
+    "main.3aaf6d94.js.map": "/FlightSearch/static/js/main.3aaf6d94.js.map",
     "787.d0aa32e8.chunk.js.map": "/FlightSearch/static/js/787.d0aa32e8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4831c709.css",
-    "static/js/main.f05e1a7c.js"
+    "static/css/main.08a2a826.css",
+    "static/js/main.3aaf6d94.js"
   ]
 }
