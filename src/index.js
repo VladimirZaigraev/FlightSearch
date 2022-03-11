@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.sass';
-import './vendor/normalize.css';
-import './vendor/fonts.css'
-import App from './App';
+import './vendor/normalize.sass';
+import './vendor/fonts.sass'
+import App from './components/App';
 import { HashRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
