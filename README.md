@@ -23,13 +23,13 @@
 #### Скриншоты
 
 Пимер интерфейса из задания:
-![Image alt](https://github.com//VladimirZaigraev/FlightSearch/blob/master/screenshot/avia_search_old.png)
+![Image alt](https://github.com//VladimirZaigraev/FlightSearch/raw/master/screenshot/avia_search_old.png)
 
 Новый дизайн
-![Image alt](https://github.com//VladimirZaigraev/FlightSearch/blob/master/screenshot/scr1.jpg)
+![Image alt](https://github.com//VladimirZaigraev/FlightSearch/raw/master/screenshot/scr1.jpg)
 
 Добавлен фукционал - доп услуги.
-![Image alt](https://github.com//VladimirZaigraev/FlightSearch/blob/master/screenshot/scr2.jpg)
+![Image alt](https://github.com//VladimirZaigraev/FlightSearch/raw/master/screenshot/scr2.jpg)
 
 Ссылка на ghpage: https://vladimirzaigraev.github.io/FlightSearch/
 
