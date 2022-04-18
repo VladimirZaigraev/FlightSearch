@@ -1,4 +1,5 @@
 # Поиск авиабилетов
+Ссылка на ghpage: https://vladimirzaigraev.github.io/FlightSearch/
 
 ## _v1.0_
 
@@ -31,7 +32,6 @@
 Добавлен фукционал - доп услуги.
 ![Image alt](https://github.com//VladimirZaigraev/FlightSearch/raw/master/screenshot/scr2.jpg)
 
-Ссылка на ghpage: https://vladimirzaigraev.github.io/FlightSearch/
 
 > Проект находится в разработке.
 > Планируется добавление страницы оформления заказа, доработка дизайна и анимаций
