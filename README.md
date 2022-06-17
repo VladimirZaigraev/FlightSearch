@@ -1,6 +1,7 @@
 <h1 align="center">Поиск авиабилетов</h1>
 
-## _v1.0_
+## _v1.1_
+
 Ссылка на ghpage: https://vladimirzaigraev.github.io/FlightSearch/
 
 ![Image alt](https://github.com//VladimirZaigraev/FlightSearch/raw/master/screenshot/scr1.jpg)
@@ -8,6 +9,7 @@
 <h3 align="center">Функционал</h1>
 
 Страница с поиском и фильтрацией авиабилетов.
+
 - Поиск по авиакомпаниям.
 - Сортировка по времени пути, убыванию и возрастанию цены.
 - Фильтрация по наличи пересадки
@@ -18,12 +20,12 @@
 <h3 align="center">Технологии</h1>
 
 1. HTML5 - cемантическая вёрстка
-3. SASS (Flexbox, Grid) - Наименования элементов и структура по методологии БЭМ. 
-5. JavaScript ES6 - функциональный подход.
-7. React - функциональные компоненты.
-    - Функции Route, Switch.
-    - Хуки useState, useEffect.
-8. JSON
+2. SASS (Flexbox, Grid) - Наименования элементов и структура по методологии БЭМ.
+3. JavaScript ES6 - функциональный подход.
+4. React - функциональные компоненты.
+   - Функции Route, Switch.
+   - Хуки useState, useEffect.
+5. JSON
 
 <h3 align="center">Скриншоты</h1>
 
@@ -35,12 +37,11 @@
 
 ![Image alt](https://github.com//VladimirZaigraev/FlightSearch/raw/master/screenshot/scr2.jpg)
 
-
 <h3 align="center">Системные требования</h1>
 
- - React 17,
+- React 17,
 
- - React-router-dom 5,
+- React-router-dom 5,
 
 <h3 align="center">Инструкция по развёртыванию</h1>
 
@@ -52,4 +53,3 @@ npm run start - запуск
 
 > Проект находится в разработке.
 > Планируется добавление страницы оформления заказа, доработка дизайна и анимаций
-> Адаптив будет сделан после доработки функционала и дизайна

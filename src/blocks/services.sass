@@ -1,7 +1,6 @@
 .services
   width: 100%
   border-radius: 4px
-  height: 30px
   padding: 2px 5px 2px 5px
   display: flex
   align-items: center
@@ -34,3 +33,12 @@
       color: #0C73FE
     &_paid
       color: #FF6F32
+
+@media (max-width: 580px)
+  .services
+    &__title
+      font-size: 10px
+      margin: 0 2px 0 0
+      font-weight: 200
+    &__text
+      font-size: 8px
